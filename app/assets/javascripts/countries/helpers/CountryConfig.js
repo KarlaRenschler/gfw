@@ -91,6 +91,20 @@ define([], function() {
         alt: "Global forest height"
       })
     },
+    cdbdark : {
+      type: 'customMapType',
+      style: new google.maps.ImageMapType({
+        getTileUrl: function(ll, z) {
+          var X = Math.abs(ll.x % (1 << z)); // wrap
+          return "//a.basemaps.cartocdn.com/dark_all/{0}/{1}/{2}.png" + z + "/" + X + "/" + ll.y + ".png";
+        },
+        tileSize: new google.maps.Size(256, 256),
+        isPng: true,
+        maxZoom: 17,
+        name: "Dark",
+        alt: "CartoDB Dark Matter"
+      })
+    },
     landsat : []
   };
 
