@@ -17,11 +17,12 @@ define([
     template: Handlebars.compile(tpl),
 
     events: {
-      'click .close' : 'hide',
+      'click .close' : 'hide'
     },
 
     initialize: function(options) {
       this.src = options.src;
+      $('.overlay').on('click', _.bind(this.hide, this));
     },
 
     hide: function(e) {
