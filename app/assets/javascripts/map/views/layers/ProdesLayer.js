@@ -16,7 +16,9 @@ define([
   var ProdesLayer = CartoDBLayerClass.extend({
     options: {
       sql:  'SELECT cartodb_id, the_geom_webmercator, ano::int as date, \'{tableName}\' as layer, \'{tableName}\' AS name FROM {tableName} ' + 'WHERE ano BETWEEN \'{startYear}\' AND \'{endYear}\'',
-      cartocss: ProdesCartoCSS
+      cartocss: ProdesCartoCSS,
+      interactivity: 'date',
+      analysis: true
     },
 
     init: function(layer, options, map) {
